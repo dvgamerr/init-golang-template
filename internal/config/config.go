@@ -37,8 +37,6 @@ type LogConfig struct {
 func Load(configPath, env string) (*Config, error) {
 	v := viper.New()
 
-	setDefaults(v)
-
 	if configPath != "" {
 		v.SetConfigFile(configPath)
 	} else {
@@ -69,20 +67,4 @@ func Load(configPath, env string) (*Config, error) {
 	}
 
 	return &config, nil
-}
-
-func setDefaults(v *viper.Viper) {
-	const (
-		defaultServerPort   = 8080
-		defaultDatabasePort = 5432
-	)
-
-	v.SetDefault("environment", "development")
-	v.SetDefault("server.host", "localhost")
-	v.SetDefault("server.port", defaultServerPort)
-	v.SetDefault("database.host", "localhost")
-	v.SetDefault("database.port", defaultDatabasePort)
-	v.SetDefault("database.ssl_mode", "disable")
-	v.SetDefault("log.level", "info")
-	v.SetDefault("log.format", "json")
 }
