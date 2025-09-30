@@ -20,7 +20,6 @@ build:
 	@echo "Build complete: bin/${BINARY_NAME}.exe"
 
 run:
-	@echo "Running application..."
 	go run cmd/app/main.go
 
 test:
