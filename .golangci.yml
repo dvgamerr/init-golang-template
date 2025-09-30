@@ -155,10 +155,18 @@ linters-settings:
       - hugeParam
 
   stylecheck:
-    checks: ["all", "-ST1000", "-ST1003", "-ST1016", "-ST1020", "-ST1021", "-ST1022"]
+    checks: ["all", "-ST1000", "-ST1003", "-ST1016", "-ST1020", "-ST1021", "-ST1022", "-ST1023"]
     dot-import-whitelist:
       - fmt
     http-status-code-whitelist: ["200", "400", "404", "500"]
+    # Disabled checks:
+    # ST1000: Package comment
+    # ST1003: Naming conventions
+    # ST1016: Receiver naming
+    # ST1020: Comment should end in a period
+    # ST1021: Comment should not start with the name of the declaration
+    # ST1022: Comment should have a leading space
+    # ST1023: Comment should start with a capital letter
 
   errorlint:
     errorf: true

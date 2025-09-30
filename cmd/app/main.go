@@ -6,13 +6,12 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
+
 	"github.com/yourusername/init-golang-template/internal/config"
 )
 
 var (
-	// Version is set during build
-	Version = "dev"
-	// BuildTime is set during build
+	Version   = "dev"
 	BuildTime = "unknown"
 )
 
@@ -37,11 +36,17 @@ func run() error {
 	return rootCmd.Execute()
 }
 
-func runApp(cmd *cobra.Command, args []string) error {
-	configPath, _ := cmd.Flags().GetString("config")
-	env, _ := cmd.Flags().GetString("env")
+func runApp(cmd *cobra.Command, _ []string) error {
+	configPath, err := cmd.Flags().GetString("config")
+	if err != nil {
+		return fmt.Errorf("failed to get config flag: %w", err)
+	}
 
-	// Load configuration
+	env, err := cmd.Flags().GetString("env")
+	if err != nil {
+		return fmt.Errorf("failed to get env flag: %w", err)
+	}
+
 	cfg, err := config.Load(configPath, env)
 	if err != nil {
 		return fmt.Errorf("failed to load config: %w", err)
@@ -50,8 +55,6 @@ func runApp(cmd *cobra.Command, args []string) error {
 	fmt.Fprintf(os.Stdout, "Starting application...\n")
 	fmt.Fprintf(os.Stdout, "Environment: %s\n", cfg.Environment)
 	fmt.Fprintf(os.Stdout, "Server: %s:%d\n", cfg.Server.Host, cfg.Server.Port)
-
-	// TODO: Initialize and start your application here
 
 	return nil
 }
