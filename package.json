@@ -1,0 +1,20 @@
+{
+  "name": "init-golang-template",
+  "version": "1.0.0",
+  "description": "Go project template with linting and commit linting",
+  "scripts": {
+    "prepare": "husky install",
+    "commitlint": "commitlint --edit"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "husky": "^9.1.7"
+  },
+  "keywords": [
+    "golang",
+    "template",
+    "linting"
+  ],
+  "license": "MIT"
+}

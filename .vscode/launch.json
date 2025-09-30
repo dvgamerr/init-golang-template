@@ -1,0 +1,38 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Application",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/cmd/app/main.go",
+      "env": {},
+      "args": []
+    },
+    {
+      "name": "Launch with Config",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/cmd/app/main.go",
+      "env": {},
+      "args": [
+        "--config",
+        "${workspaceFolder}/configs/config.yaml",
+        "--env",
+        "development"
+      ]
+    },
+    {
+      "name": "Debug Current Test",
+      "type": "node",
+      "request": "launch",
+      "program": "${file}"
+    },
+    {
+      "name": "Debug All Tests",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}"
+    }
+  ]
+}

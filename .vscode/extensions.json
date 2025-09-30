@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "golang.go",
+    "github.copilot",
+    "editorconfig.editorconfig",
+    "ms-azuretools.vscode-docker"
+  ]
+}
